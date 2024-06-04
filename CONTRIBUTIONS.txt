@@ -1,3 +1,8 @@
+-----------------------------
+06 Oct. 2021
+This library is a forked from Ethernet2 ver1.0.3.
+All filenames are renamed for coexist with Ethernet2.
+by H.kurosaki
 ---------------
 DHCP.cpp
 
@@ -16,6 +21,9 @@ Ethernet2:
  modified 12 Aug 2013
  by Soohwan Kim (suhwan@wiznet.co.kr)
 
+ modified 23 Dec. 2016
+ modified to macaddr auto-setting
+ by H.kurosaki
 ---------------
 UDP.cpp: bjoern@cs.stanford.edu 12/30/2008
 
@@ -31,3 +39,4 @@ Copyright (c) 2010 by WIZnet <support@wiznet.co.kr>
 
 --------------
 Various by Arduino.org team
+
