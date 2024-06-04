@@ -41,7 +41,7 @@ Wiz550ioはSPI初期化直後の応答が安定しない。
 Ethernet2.h has an option
 WIZ550io_WITH_MACADDRESS” option, but it does not work.
 This option is effective only for Wiz550io, which can use automatic MAC address configuration,
-However, it is only available in the old Ethernet2.h and has been disabled since ver1.0.3.
+However, it is only available in the old Ethernet2.h and has been disabled since ver1.0.4.
 The reason for this is that w5500.cpp now performs a software reset during begin.
 The software reset has the effect of setting all MAC addresses to 0, and the factory address disappears at this stage.
 The factory address can only be read at the first stage of power-on.
