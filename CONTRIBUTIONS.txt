@@ -1,7 +1,16 @@
+31 Jan. 2025
+
+_socket.cpp
+MyEthernetUdp2.cpp
+Two loops have been modified to accommodate the Raspberry Pi PICO. These could cause freezes.
+
+by H.kurosaki
 -----------------------------
 06 Oct. 2021
 This library is a forked from Ethernet2 ver1.0.3.
 All filenames are renamed for coexist with Ethernet2.
+modified to macaddr auto-setting
+
 by H.kurosaki
 ---------------
 DHCP.cpp
@@ -22,8 +31,6 @@ Ethernet2:
  by Soohwan Kim (suhwan@wiznet.co.kr)
 
  modified 23 Dec. 2016
- modified to macaddr auto-setting
- by H.kurosaki
 ---------------
 UDP.cpp: bjoern@cs.stanford.edu 12/30/2008
 

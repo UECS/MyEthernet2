@@ -13,10 +13,13 @@ Ethernet2ライブラリを最新版にアップデートすると内蔵MACア�
 この問題を解決するため分岐したのがこのMyEthernet2ライブラリです。
 Ethernet2ライブラリと共存するために全てのファイル名を書き換えてあります。
 
-既知の問題
+Raspberry Pi PICOで使用したとき、低い頻度でフリーズする問題を解決しました。
 
+既知の問題
 コンパイルのときに警告が出ますが実害は無いようです。
 過去のバージョンにあった1回しか初期化できない問題は解決されました。
+
+
 
 This library is a modified version of the Ethernet2 library (https://github.com/adafruit/Ethernet2 ) to effectively utilize the functions of Wiz550io.
 It enables the built-in MAC address setting function written in ROM of Wiz550io.
@@ -32,6 +35,8 @@ This problem occurs when using Wiz550io with MAC address written in ROM.
 If the Ethernet2 library is updated to the latest version, the built-in MAC address will not be available.
 To solve this problem, we branched out to this MyEthernet2 library.
 All file names have been rewritten to coexist with the Ethernet2 library.
+
+Resolved a problem with low frequency freezes when used with Raspberry Pi PICO.
 
 Known problems
 
