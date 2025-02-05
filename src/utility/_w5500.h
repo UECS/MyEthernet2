@@ -415,7 +415,36 @@ uint8_t W5500Class::getPHYCFGR() {
 }
 
 void W5500Class::swReset() {
-  writeMR( (readMR() | 0x80) );
+//  writeMR( (readMR() | 0x80) );
+
+	uint16_t count=0;
+	// write to reset bit
+	writeMR(0x80);
+	// then wait for soft reset to complete
+	do {
+		uint8_t mr = readMR();
+		if (mr == 0) return;
+		delay(1);
+	} while (++count < 20);
+	return;
+
 }
+
+// Soft reset the Wiznet chip, by writing to its MR register reset bit
+/*
+uint8_t W5500Class::softReset(void)
+{
+	uint16_t count=0;
+	// write to reset bit
+	writeMR(0x80);
+	// then wait for soft reset to complete
+	do {
+		uint8_t mr = readMR();
+		if (mr == 0) return 1;
+		delay(1);
+	} while (++count < 20);
+	return 0;
+}
+*/
 
 #endif

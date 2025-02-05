@@ -390,12 +390,13 @@ int startUDP(SOCKET s, uint8_t* addr, uint16_t port)
 
 int sendUDP(SOCKET s)
 {
+unsigned long start=millis();//2025.1 timeout counter added 
   w5500.execCmdSn(s, Sock_SEND);
 		
   /* +2008.01 bj */
   while ( (w5500.readSnIR(s) & SnIR::SEND_OK) != SnIR::SEND_OK ) 
   {
-    if (w5500.readSnIR(s) & SnIR::TIMEOUT)
+    if (w5500.readSnIR(s) & SnIR::TIMEOUT || start+5<millis() || start>millis()) //2025.1 timeout counter added 
     {
       /* +2008.01 [bj]: clear interrupt */
       w5500.writeSnIR(s, (SnIR::SEND_OK|SnIR::TIMEOUT));
@@ -405,7 +406,6 @@ int sendUDP(SOCKET s)
 
   /* +2008.01 bj */	
   w5500.writeSnIR(s, SnIR::SEND_OK);
-
   /* Sent ok */
   return 1;
 }
