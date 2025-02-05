@@ -14,6 +14,9 @@ Ethernet2ライブラリを最新版にアップデートすると内蔵MACア�
 Ethernet2ライブラリと共存するために全てのファイル名を書き換えてあります。
 
 Raspberry Pi PICOで使用したとき、低い頻度でフリーズする問題を解決しました。
+ただし、この代償としてパケットの送信に失敗したときはW5500を再初期化する必要があります。
+パケットの送信後に戻り値を確認してください。ソフトウェアでの再起動にも対応していますが。
+Resetピンをマイコンに結線しハードウェアリセットをかけることを推奨します。
 
 既知の問題
 コンパイルのときに警告が出ますが実害は無いようです。
@@ -37,6 +40,9 @@ To solve this problem, we branched out to this MyEthernet2 library.
 All file names have been rewritten to coexist with the Ethernet2 library.
 
 Resolved a problem with low frequency freezes when used with Raspberry Pi PICO.
+However, the price for this is that the W5500 must be re-initialized if the packet transmission fails.
+Check the return value after sending the packet. You can use software to restart the device, though.
+It is recommended to apply a hardware reset by connecting the Reset pin to the microcontroller.
 
 Known problems
 
