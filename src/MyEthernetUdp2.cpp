@@ -138,7 +138,6 @@ int EthernetUDP::parsePacket()
       _remotePort = (_remotePort << 8) + tmpBuf[5];
       _remaining = tmpBuf[6];
       _remaining = (_remaining << 8) + tmpBuf[7];
-
       // When we get here, any remaining bytes are the data
       ret = _remaining;
     }
@@ -213,10 +212,15 @@ void EthernetUDP::flush()
   // could this fail (loop endlessly) if _remaining > 0 and recv in read fails?
   // should only occur if recv fails after telling us the data is there, lets
   // hope the w5500 always behaves :)
-
+unsigned long start=millis();//2025.1 timeout counter added 
+	
   while (_remaining)
   {
     read();
+  	if (start+50<millis() || start>millis())
+  				{
+  				break;
+  				} //2025.1 timeout counter added 
   }
 }
 
